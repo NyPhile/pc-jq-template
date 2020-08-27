@@ -34,15 +34,6 @@ module.exports = merge(baseWebpackConfig, {
             minimize: false,
             attrs: [':src']
           }
-        },{
-          loader: 'ne-ssi-loader',
-          options: {
-            remote: {
-              locations: 'https://news.163.com',
-              charset: 'GBK'
-            },
-            build: 'src'
-          }
         }]
       }
     ]
