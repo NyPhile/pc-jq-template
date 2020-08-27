@@ -33,7 +33,7 @@
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "mini-css-extract-plugin": "^0.7.0",
-    "ne-ssi-loader": "0.0.2",
+    "ne-ssi-loader": "0.0.4",
     "velocityjs": "^2.0.0",
     "ne-velocity-loader": "0.0.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
