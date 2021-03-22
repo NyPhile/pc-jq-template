@@ -124,6 +124,11 @@
     "label": "传媒",
     "value": "media"
   },
+  "www": {
+    "channelid": "0077",
+    "label": "首页",
+    "value": "www"
+  },
   "jiu": {
     "channelid": "0082",
     "label": "酒",
