@@ -79,6 +79,11 @@
     "label": "女人",
     "value": "lady"
   },
+  "culture": {
+    "channelid": "0028",
+    "label": "文化",
+    "value": "culture"
+  },
   "edu": {
     "channelid": "0029",
     "label": "教育",
