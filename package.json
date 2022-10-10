@@ -35,7 +35,7 @@
     "mini-css-extract-plugin": "^0.7.0",
     "ne-ssi-loader": "0.0.4",
     "velocityjs": "^2.0.0",
-    "ne-velocity-loader": "0.0.1",
+    "ne-velocity-loader": "0.0.3",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-autosize": "^1.0.1",
     "postcss-loader": "^3.0.0",
