@@ -1,4 +1,10 @@
-const pkg = require('./package.json')
+/*
+ * @Author: wanghaiyan
+ * @Date: 2022-02-08 11:22:50
+ * @LastEditTime: 2022-02-08 14:00:20
+ * @LastEditors: wanghaiyan
+ */
+const pkg = require('../package.json')
 const baseWebpackConfig = require('./webpack.base.config.js')
 
 const path = require('path')
@@ -51,7 +57,7 @@ module.exports = merge(baseWebpackConfig, {
           options: {
             remote: {
               locations: 'https://news.163.com',
-              charset: 'GBK'
+              charset: 'utf-8'
             }
           }
         },{
