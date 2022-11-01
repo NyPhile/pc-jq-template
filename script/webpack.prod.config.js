@@ -1,4 +1,4 @@
-const pkg = require('./package.json')
+const pkg = require('../package.json')
 const baseWebpackConfig = require('./webpack.base.config.js')
 
 const path = require('path')
@@ -20,7 +20,7 @@ let publicPath = `https://static.ws.126.net/163/f2e/${pkg.channel}/${pkg.name}/`
 module.exports = merge(baseWebpackConfig, {
   mode: 'production',
   output: {
-    path: resolve(__dirname, 'dist'),
+    path: resolve(__dirname, '../dist'),
     filename: 'static/js/[name].[contenthash:8].js',
     publicPath
   },
@@ -34,15 +34,6 @@ module.exports = merge(baseWebpackConfig, {
             minimize: false,
             attrs: [':src']
           }
-        }, {
-          loader: 'ne-ssi-loader',
-          options: {
-            remote: {
-              locations: 'https://news.163.com',
-              charset: 'GBK',
-            },
-            build: 'src'
-          }
         }]
       }
     ]
@@ -54,8 +45,8 @@ module.exports = merge(baseWebpackConfig, {
       filename: "static/css/[name].[contenthash:8].css"
     }),
     new HtmlWebPackPlugin({
-        template: "./src/index.html",
-        filename: "./index.html"
+        template: path.resolve(__dirname, "../src/index.html"),
+        filename: "index.html"
     }),
     new ScriptExtHtmlWebpackPlugin({
       inline: /manifest\..*\.js$/,
@@ -70,8 +61,8 @@ module.exports = merge(baseWebpackConfig, {
     }),
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, 'static'),
-        to: path.resolve(__dirname, 'dist/static'),
+        from: path.resolve(__dirname, '../static'),
+        to: path.resolve(__dirname, '../dist/static'),
         ignore: ['.*']
       }
     ]),
