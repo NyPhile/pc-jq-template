@@ -1,13 +1,13 @@
-const pkg = require('./package.json')
+const pkg = require('../package.json')
 const fs = require('fs')
 const del = require('del')
 const path = require('path')
 const easeftp = require('easeftp/upload')
-const account = require('/Users/xxx/code/openID')
+const account = require('../openID')
 const iconv = require('iconv-lite')
-const agent = require('./config/agent')
+const agent = require('../config/agent')
 
-const cacheDir = path.resolve('node_modules/.cache/easeftp/')
+const cacheDir = path.resolve('../node_modules/.cache/easeftp/')
 
 const HTML_REG = /\.s?html?/i
 const CMS_ID_REG = /<meta\s+name=["']cms_id["']\s+content=["'](\w+)["']\s*\/?>/i
@@ -44,15 +44,12 @@ function getPublickPath (staticUrls, isHTML = false) {
 
 function uploadStatic () {
   let allFiles = findFiles(`dist/static/`, 'static/')
-
   let cacheFiles = []
   let cachePath = `${cacheDir}/cache-files.json`
   if (fs.existsSync(cachePath)) {
     cacheFiles = JSON.parse(fs.readFileSync(cachePath, 'utf-8'))
   }
-
   let newFiles = allFiles.filter(item => cacheFiles.indexOf(item) === -1)
-
   return easeftp.addFile(newFiles, {
     debug: true,
     username: account.username,
@@ -104,7 +101,6 @@ function encodeStr(content, charset = 'GBK') {
 const updateTemplate = (modelid, content, callback) => {
   const { url, params } = account.cms.pc
   const data = params + '&modelid=' + modelid + '&content=' + encodeStr(content)
-  // console.log(url, data)
   return new Promise((resolve, reject) => {
     agent.post(url)
       .type('form')
@@ -140,8 +136,4 @@ exports['upload'] = async function () {
 
 exports['publish'] = async function () {
   await publish()
-}
-
-exports['clear'] = function () {
-  return del([cacheDir])
 }
