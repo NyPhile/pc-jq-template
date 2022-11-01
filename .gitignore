@@ -1,10 +1,9 @@
 .DS_Store
 node_modules/
 dist/
-.ftppass
 README-hz.md
 README-github.md
-
+openID.json
 # local env files
 .env.local
 .env.*.local
